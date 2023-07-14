@@ -1,4 +1,4 @@
-CTISL:a dynamic stacking multi-class classification approach for identifying cell types from single-cell RNA-sequencing data
+# CTISL:a dynamic stacking multi-class classification approach for identifying cell types from single-cell RNA-sequencing data
 ## Requirements
 python 3.7.11
 scikit-learn 1.0.2
