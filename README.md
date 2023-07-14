@@ -9,15 +9,15 @@ pandas 1.3.5
 ## Train CTISL on Intra-dataset as follows:
  python Intra_train.py -Name '10Xv2' -Fileform 'h5ad' -Norm True
  
- Parameters and description are as follows:
- -Name: Intra-dataset(for example:10Xv2,10Xv3...)
- -Fileform: The gene expression matrix file can be in either 'csv' or 'h5ad' format.
- -Norm: If it is raw data, it needs to be normalized with 'norm=True'
+ Parameters and description are as follows:  
+ -Name: Intra-dataset(for example:10Xv2,10Xv3...)                             
+ -Fileform: The gene expression matrix file can be in either 'csv' or 'h5ad' format.   
+ -Norm: If it is raw data, it needs to be normalized with 'norm=True' 
 
 ## Train CTISL on Inter-data,Cross-batch,Cross-species as follows;
  python cross_train.py -Sourcename 'dentritic_batch_1' -Targetname 'dentritic_batch_2' -Fileform 'csv' -Norm False
  
- Parameters and description are as follows:
+ Parameters and description are as follows:    
  -Sourcename: Training set name.In the example above, "dentritic_batch_1" is used as the training set in the cross-batch experiment.
  -Targetname: Testing set name.In the example above, "dentritic_batch_2" is used as the testing set in the cross-batch experiment.
  -Fileform: The gene expression matrix file can be in either 'csv' or 'h5ad' format. 
