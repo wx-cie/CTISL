@@ -41,3 +41,9 @@ The following datasets were used:
 - Airway datasets: Downloaded from [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102580).
 - Dendritic datasets: Downloaded from [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE94820).
 - Retina datasets: Downloaded from [link](https://hemberg-lab.github.io/scRNA.seq.datasets/mouse/retina/  ).
+  
+## User Guide
+If users want to train and predict with their own data, please use the following command.
+```shell
+python demo_train.py -Train './data/celseq2.h5ad' -Trainlabel './data/celseq2label.txt' -Test './data/sm2.h5ad' -Predictlabel './data/predict.txt'  -Fileform 'h5ad' -Norm True
+```
