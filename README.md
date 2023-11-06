@@ -42,8 +42,8 @@ The following datasets were used:
 - Dendritic datasets: Downloaded from [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE94820).
 - Retina datasets: Downloaded from [link](https://hemberg-lab.github.io/scRNA.seq.datasets/mouse/retina/  ).
   
-## User Guide
-If users want to train and predict with their own data, please use the following command.
+## Run the code on your data
+If you want to train and predict with your data, please use the following command.
 ```shell
-python demo_train.py -Train './data/celseq2.h5ad' -Trainlabel './data/celseq2label.txt' -Test './data/sm2.h5ad' -Predictlabel './data/predict.txt'  -Fileform 'h5ad' -Norm True
+python demo_train.py  -Train [*The path to your training dataset*] -Trainlabel [*The path to your training dataset labels*] -Test [*The path to your testingdata*] -Predictlabel [*Location for storing predicted labels*]  -Fileform [*Your data format*] -Norm [*Is the data standardized?*]
 ```
