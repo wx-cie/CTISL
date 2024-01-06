@@ -1,5 +1,6 @@
 from mlxtend.feature_selection import ColumnSelector
 from mlxtend.classifier import StackingCVClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import accuracy_score
@@ -11,22 +12,27 @@ import numpy as np
 
 
 
-def Model(name, class_num, m_k,feature_num,traindata,testdata,trainlabel,testlabel):
-    lists = []
-    for i in range(class_num):
-        a_dict = range(i * feature_num, (i + 1) * feature_num)
-        pipe1 = make_pipeline(ColumnSelector(cols=a_dict),
-                              LogisticRegression(C=0.1, random_state=11))
-        pipe2 = make_pipeline(ColumnSelector(cols=a_dict),
-                              OneVsRestClassifier(svm.SVC(kernel='rbf', probability=True, C=0.5, random_state=11)))
-        lists.append(pipe1)
-        lists.append(pipe2)
+def Model(name, modelname,class_num, m_k,feature_num,traindata,testdata,trainlabel,testlabel):
+    if modelname=='MLP':
+        sclf = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=300)
+    else:
+        lists = []
+        for i in range(class_num):
+            a_dict = range(i * feature_num, (i + 1) * feature_num)
+            pipe1 = make_pipeline(ColumnSelector(cols=a_dict),
+                                  LogisticRegression(C=0.1, random_state=11))
+            pipe2 = make_pipeline(ColumnSelector(cols=a_dict),
+                                  OneVsRestClassifier(svm.SVC(kernel='rbf', probability=True, C=0.5, random_state=11)))
+            lists.append(pipe1)
+            lists.append(pipe2)
 
-    sclf = StackingCVClassifier(classifiers=lists,
-                                meta_classifier=LogisticRegression(C=1.5),
-                                use_probas=True,
-                                cv=3,
-                                random_state=11)
+        sclf = StackingCVClassifier(classifiers=lists,
+                                    meta_classifier=LogisticRegression(C=1.5),
+                                    use_probas=True,
+                                    cv=3,
+                                    random_state=11)
+
+
     sclf.fit(traindata, trainlabel)
 
     joblib.dump(sclf, './model/' + name + str(m_k) + '.model')
@@ -44,4 +50,3 @@ def Model(name, class_num, m_k,feature_num,traindata,testdata,trainlabel,testlab
     f.close()
 
     return
-
