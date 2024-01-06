@@ -1,6 +1,7 @@
 from numpy import *
 import numpy as np
 from anndata import AnnData
+from sklearn.neural_network import MLPClassifier
 from sklearn.feature_selection import SelectKBest, chi2
 import pandas as pd
 import scanpy as sc
@@ -17,12 +18,13 @@ import os
 
 
 class DataProcess:
-    def __init__(self, traindata,trainlabel,testdata, predictlabel,feature_num,normalize,fileform):
+    def __init__(self, traindata,trainlabel,testdata, predictlabel,modelname,feature_num,normalize,fileform):
         super().__init__()
         self.traindata=traindata
         self.trainlabel=trainlabel
         self.testdata=testdata
         self.predictlabel=predictlabel
+        self.modelname=modelname
 
         self.name = 'temp'
         if os.path.exists('./temp/') == False:
@@ -143,15 +145,19 @@ class DataProcess:
                         label[i] = 0
                 np.savetxt('./' + dataname +'/'+ '/trainlabel' + str(j) + '.txt', label)
     def CTISLModel(self,name, class_num, m_k,feature_num,traindata,testdata,trainlabel):
-        lists = []
-        for i in range(class_num):
-            a_dict = range(i * feature_num, (i + 1) * feature_num)
-            pipe1 = make_pipeline(ColumnSelector(cols=a_dict),
-                                  LogisticRegression(C=0.1, random_state=11))
-            pipe2 = make_pipeline(ColumnSelector(cols=a_dict),
-                                  OneVsRestClassifier(svm.SVC(kernel='rbf', probability=True, C=0.5, random_state=11)))
-            lists.append(pipe1)
-            lists.append(pipe2)
+        if self.modelname=='MLP':
+            sclf = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=300)
+        else:
+            lists = []
+            for i in range(class_num):
+                a_dict = range(i * feature_num, (i + 1) * feature_num)
+                pipe1 = make_pipeline(ColumnSelector(cols=a_dict),
+                                      LogisticRegression(C=0.1, random_state=11))
+                pipe2 = make_pipeline(ColumnSelector(cols=a_dict),
+                                      OneVsRestClassifier(
+                                          svm.SVC(kernel='rbf', probability=True, C=0.5, random_state=11)))
+                lists.append(pipe1)
+                lists.append(pipe2)
 
         sclf = StackingCVClassifier(classifiers=lists,
                                     meta_classifier=LogisticRegression(C=1.5),
