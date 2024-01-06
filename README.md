@@ -12,11 +12,12 @@
 To train CTISL on the Intra-dataset, use the following command:
 
 ```shell
-python Intra_train.py -Name '10Xv2' -Fileform 'h5ad' -Norm True
+python Intra_train.py -Name '10Xv2' -Modelname 'CTISL' -Fileform 'h5ad' -Norm True
 ```
 
 **Parameters:**
 - Name: The Intra-dataset name (e.g., 10Xv2, 10Xv3, etc.)
+- Modelname:The model name, which can be either 'CTISL' or 'MLP'.
 - Fileform: The gene expression matrix file format, which can be either 'csv' or 'h5ad'.
 - Norm: Specify whether the raw data needs to be normalized. Use 'True' for normalization.
 
@@ -25,12 +26,13 @@ python Intra_train.py -Name '10Xv2' -Fileform 'h5ad' -Norm True
 To train CTISL on Inter-data, Cross-batch, or Cross-species, use the following command:
 
 ```shell
-python cross_train.py -Sourcename 'dentritic_batch_1' -Targetname 'dentritic_batch_2' -Fileform 'csv' -Norm False
+python cross_train.py -Sourcename 'dentritic_batch_1' -Targetname 'dentritic_batch_2' -Modelname 'CTISL' -Fileform 'csv' -Norm False
 ```
 
 **Parameters:**
 - Sourcename: The name of the training set. For example, 'dentritic_batch_1' is used as the training set in the cross-batch experiment.
 - Targetname: The name of the testing set. For example, 'dentritic_batch_2' is used as the testing set in the cross-batch experiment.
+- Modelname:The model name, which can be either 'CTISL' or 'MLP'.
 - Fileform: The gene expression matrix file format, which can be either 'csv' or 'h5ad'.
 - Norm: Specify whether the raw data needs to be normalized. Use 'True' for normalization.
 
@@ -45,5 +47,5 @@ The following datasets were used:
 ## Run the code on your data
 If you want to train and predict with your data, please use the following command.
 ```shell
-python demo_train.py  -Train [*The path to your training dataset*] -Trainlabel [*The path to your training dataset labels*] -Test [*The path to your testingdata*] -Predictlabel [*Location for storing predicted labels*]  -Fileform [*Your data format*] -Norm [*Is the data standardized?*]
+python demo_train.py  -Train [*The path to your training dataset*] -Trainlabel [*The path to your training dataset labels*] -Test [*The path to your testingdata*] -Predictlabel [*Location for storing predicted labels*]  -Modelname [*The model name] -Fileform [*Your data format*] -Norm [*Is the data standardized?*]
 ```
