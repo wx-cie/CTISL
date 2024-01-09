@@ -47,5 +47,5 @@ The following datasets were used:
 ## Run the code on your data
 If you want to train and predict with your data, please use the following command.
 ```shell
-python demo_train.py  -Train [*The path to your training dataset*] -Trainlabel [*The path to your training dataset labels*] -Test [*The path to your testingdata*] -Predictlabel [*Location for storing predicted labels*]  -Modelname [*The model name] -Fileform [*Your data format*] -Norm [*Is the data standardized?*]
+python demo_train.py  -Train [*The path to your training dataset*] -Trainlabel [*The path to your training dataset labels*] -Test [*The path to your testing dataset*] -Predictlabel [*Location for storing predicted labels*]  -Modelname [*The model name] -Fileform [*Your data format*] -Norm [*Is the data standardized?*]
 ```
