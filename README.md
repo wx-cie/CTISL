@@ -51,3 +51,6 @@ If you want to train and predict with your data, please use the following comman
 ```shell
 python demo_train.py  -Train [*The path to your training dataset*] -Trainlabel [*The path to your training dataset labels*] -Test [*The path to your testing dataset*] -Predictlabel [*Location for storing predicted labels*]  -Modelname [*The model name] -Fileform [*Your data format*] -Norm [*Is the data standardized?*]
 ```
+## Web Server
+We also offer a user-friendly web server website where users can directly upload data for training and prediction ！
+[link](http://bigdata.biocie.cn/CTISLweb/home)
