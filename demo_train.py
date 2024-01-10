@@ -7,7 +7,7 @@ if __name__ == '__main__':
     parser.add_argument('-Trainlabel', '--trainlabel', required=True, help='Path to the training dataset labels ')
     parser.add_argument('-Test', '--test', required=True, help='Path to the testing dataset.')
     parser.add_argument('-Predictlabel', '--predictlabel', required=True, help='Path to the predict label.')
-    parser.add_argument('-Modelname', '--form', required=True, help='The input name can be either CTISL or MLP ')
+    parser.add_argument('-Modelname', '--modelname', required=True, help='The input name can be either CTISL or MLP ')
     parser.add_argument('-Fileform', '--form', required=True, help='The input file format can be either csv or h5ad ')
     parser.add_argument('-Norm', '--norm', required=True, help='If it is raw data, it needs to be normalized.')
 
