@@ -158,14 +158,20 @@ class DataProcess:
                                           svm.SVC(kernel='rbf', probability=True, C=0.5, random_state=11)))
                 lists.append(pipe1)
                 lists.append(pipe2)
+                sclf = StackingCVClassifier(classifiers=lists,
+                                            meta_classifier=LogisticRegression(C=1.5),
+                                            use_probas=True,
+                                            cv=3,
+                   
+                                            random_state=11)
+            sclf = StackingCVClassifier(classifiers=lists,
+                                        meta_classifier=LogisticRegression(C=1.5),
+                                        use_probas=True,
+                                        cv=3,
+                                        random_state=11)
 
-        sclf = StackingCVClassifier(classifiers=lists,
-                                    meta_classifier=LogisticRegression(C=1.5),
-                                    use_probas=True,
-                                    cv=3,
-                                    random_state=11)
+      
         sclf.fit(traindata, trainlabel)
-
         joblib.dump(sclf, './' + name +'/'+ str(m_k) + '.model')
         model = joblib.load('./' + name +'/'+ str(m_k) + '.model')
         predict_classes = model.predict(testdata)
