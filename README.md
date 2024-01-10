@@ -39,13 +39,8 @@ python cross_train.py -Sourcename 'dentritic_batch_1' -Targetname 'dentritic_bat
 - Norm: Specify whether the raw data needs to be normalized. Use 'True' for normalization.
 
 ## Data Source
-The following datasets were used:
-- PBMC datasets: Downloaded from the Broad Institute Single Cell portal [link](https://portals.broadinstitute.org/single_cell/study/SCP424/single-cellcomparisonpbmc-data).
-- Pancreas datasets: Downloaded from [link](https://hemberg-lab.github.io/scRNA.seq.datasets/).
-- Airway datasets: Downloaded from [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102580).
-- Dendritic datasets: Downloaded from [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE94820).
-- Retina datasets: Downloaded from [link](https://hemberg-lab.github.io/scRNA.seq.datasets/mouse/retina/  ).
-  We also provide these datasets on our website.[link](http://bigdata.biocie.cn/CTISLweb/download)).
+
+We provide these datasets on our website.[link](http://bigdata.biocie.cn/CTISLweb/download)
   
   
 ## Run the code on your data
