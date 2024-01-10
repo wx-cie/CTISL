@@ -12,12 +12,13 @@
 To train CTISL on the Intra-dataset, use the following command:
 
 ```shell
-python Intra_train.py -Name '10Xv2' -Modelname 'CTISL' -Fileform 'h5ad' -Norm True
+python Intra_train.py -Name '10Xv2' -Modelname 'CTISL' -ResultPath './' -Fileform 'h5ad' -Norm True
 ```
 
 **Parameters:**
 - Name: The Intra-dataset name (e.g., 10Xv2, 10Xv3, etc.)
 - Modelname:The model name, which can be either 'CTISL' or 'MLP'.
+- ResultPath:Please enter the folder address where the model's predicted results will be saved.
 - Fileform: The gene expression matrix file format, which can be either 'csv' or 'h5ad'.
 - Norm: Specify whether the raw data needs to be normalized. Use 'True' for normalization.
 
@@ -26,12 +27,13 @@ python Intra_train.py -Name '10Xv2' -Modelname 'CTISL' -Fileform 'h5ad' -Norm Tr
 To train CTISL on Inter-data, Cross-batch, or Cross-species, use the following command:
 
 ```shell
-python cross_train.py -Sourcename 'dentritic_batch_1' -Targetname 'dentritic_batch_2' -Modelname 'CTISL' -Fileform 'csv' -Norm False
+python cross_train.py -Sourcename 'dentritic_batch_1' -Targetname 'dentritic_batch_2' -ResultPath './' -Modelname 'CTISL' -Fileform 'csv' -Norm False
 ```
 
 **Parameters:**
 - Sourcename: The name of the training set. For example, 'dentritic_batch_1' is used as the training set in the cross-batch experiment.
 - Targetname: The name of the testing set. For example, 'dentritic_batch_2' is used as the testing set in the cross-batch experiment.
+- ResultPath:Please enter the folder address where the model's predicted results will be saved.
 - Modelname:The model name, which can be either 'CTISL' or 'MLP'.
 - Fileform: The gene expression matrix file format, which can be either 'csv' or 'h5ad'.
 - Norm: Specify whether the raw data needs to be normalized. Use 'True' for normalization.
