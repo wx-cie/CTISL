@@ -11,7 +11,7 @@ import scanpy as sc
 
 
 class DataProcess:
-    def __init__(self, name, modelname,feture_num, normalize, fileform):
+    def __init__(self, name, modelname,result,feture_num, normalize, fileform):
         super().__init__()
 
         self.name = name
@@ -19,6 +19,7 @@ class DataProcess:
         self.normalize = normalize
         self.fileform=fileform
         self.modelname=modelname
+        self.result=result
 
     def prefilter_specialgenes(self, adata, Gene1Pattern="ERCC", Gene2Pattern="MT-"):
 
@@ -123,7 +124,7 @@ class DataProcess:
             print(Counter(y_train), file=f)
             print('testlabel', file=f)
             print(Counter(y_test), file=f)
-            CTISL_model.Model(name=self.name,modelname=self.modelname, class_num=class_num,m_k=m,feature_num=self.feture_num,
+            CTISL_model.Model(name=self.name,modelname=self.modelname, class_num=class_num,result=self.result,m_k=m,feature_num=self.feture_num,
                               traindata=X_train,testdata=X_test,trainlabel=y_train,testlabel=y_test)
 
 
