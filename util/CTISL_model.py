@@ -12,7 +12,7 @@ import numpy as np
 
 
 
-def Model(name, modelname,class_num, m_k,feature_num,traindata,testdata,trainlabel,testlabel):
+def Model(name, modelname,class_num, result, m_k,feature_num,traindata,testdata,trainlabel,testlabel):
     if modelname=='MLP':
         sclf = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=300)
     else:
@@ -35,15 +35,15 @@ def Model(name, modelname,class_num, m_k,feature_num,traindata,testdata,trainlab
 
     sclf.fit(traindata, trainlabel)
 
-    joblib.dump(sclf, './model/' + name + str(m_k) + '.model')
-    model = joblib.load('./model/' + name + str(m_k) + '.model')
+    joblib.dump(sclf, result+'/' + name + str(m_k) + '.model')
+    model = joblib.load(result+'/'+ name + str(m_k) + '.model')
     predict_classes = model.predict(testdata)
 
     acc = accuracy_score(testlabel, predict_classes)
     p_class, r_class, f_class, support_micro = precision_recall_fscore_support(
         testlabel, predict_classes)
 
-    f = open('./results/' + name +'_'+str(m_k)+ 'result.txt', 'wt')
+    f = open(result+'/'+ name +'_'+str(m_k)+ 'result.txt', 'wt')
     print("acc : ", acc,file=f)
     print("macroF1score : ", f_class.mean(),file=f)
     print("medianF1score : ", np.median(f_class),file=f)
