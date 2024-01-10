@@ -45,6 +45,8 @@ The following datasets were used:
 - Airway datasets: Downloaded from [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102580).
 - Dendritic datasets: Downloaded from [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE94820).
 - Retina datasets: Downloaded from [link](https://hemberg-lab.github.io/scRNA.seq.datasets/mouse/retina/  ).
+  We also provide these datasets on our website.[link](http://bigdata.biocie.cn/CTISLweb/download)).
+  
   
 ## Run the code on your data
 If you want to train and predict with your data, please use the following command.
