@@ -14,7 +14,7 @@
 To train CTISL on the Intra-dataset, use the following command:
 
 ```shell
-python Intra_train.py -Name '10Xv2' -Modelname 'CTISL' -ResultPath './' -Fileform 'h5ad' -Norm True
+python Intra_train.py -Name 'CEL-Seq2' -Modelname 'CTISL' -ResultPath './' -Fileform 'h5ad' -Norm True
 ```
 
 **Parameters:**
