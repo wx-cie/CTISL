@@ -7,6 +7,7 @@
 - numpy 1.19.1
 - pandas 1.3.5
 - mlxtend 0.19.0
+- joblib 1.1.0
 
 ## Train CTISL on Intra-dataset
 
