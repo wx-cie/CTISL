@@ -29,7 +29,7 @@ python Intra_train.py -Name '10Xv2' -Modelname 'CTISL' -ResultPath './' -Filefor
 To train CTISL on Inter-data, Cross-batch, or Cross-species, use the following command:
 
 ```shell
-python cross_train.py -Sourcename 'dentritic_batch_1' -Targetname 'dentritic_batch_2' -ResultPath './' -Modelname 'CTISL' -Fileform 'csv' -Norm False
+python cross_train.py -Sourcename 'dendritic_batch_1' -Targetname 'dendritic_batch_2' -ResultPath './' -Modelname 'CTISL' -Fileform 'csv' -Norm False
 ```
 
 **Parameters:**
