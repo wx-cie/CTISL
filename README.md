@@ -33,8 +33,8 @@ python cross_train.py -Sourcename 'dendritic_batch_1' -Targetname 'dendritic_bat
 ```
 
 **Parameters:**
-- Sourcename: The name of the training set. For example, 'dentritic_batch_1' is used as the training set in the cross-batch experiment.
-- Targetname: The name of the testing set. For example, 'dentritic_batch_2' is used as the testing set in the cross-batch experiment.
+- Sourcename: The name of the training set. For example, 'dendritic_batch_1' is used as the training set in the cross-batch experiment.
+- Targetname: The name of the testing set. For example, 'dendritic_batch_2' is used as the testing set in the cross-batch experiment.
 - ResultPath:Please enter the folder address where the model's predicted results will be saved.
 - Modelname:The model name, which can be either 'CTISL' or 'MLP'.
 - Fileform: The gene expression matrix file format, which can be either 'csv' or 'h5ad'.
