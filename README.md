@@ -14,7 +14,7 @@
 To train CTISL on the Intra-dataset, use the following command:
 
 ```shell
-python Intra_train.py -Name 'CEL-Seq2' -Modelname 'CTISL' -ResultPath './' -Fileform 'h5ad' -Norm True
+python Intra_train.py -Name 'CELSeq' -Modelname 'CTISL' -ResultPath './' -Fileform 'h5ad' -Norm True
 ```
 
 **Parameters:**
@@ -29,7 +29,7 @@ python Intra_train.py -Name 'CEL-Seq2' -Modelname 'CTISL' -ResultPath './' -File
 To train CTISL on Inter-data, Cross-batch, or Cross-species, use the following command:
 
 ```shell
-python cross_train.py -Sourcename 'dendritic_batch_1' -Targetname 'dendritic_batch_2' -ResultPath './' -Modelname 'CTISL' -Fileform 'csv' -Norm False
+python cross_train.py -Sourcename 'Dendritic_batch1' -Targetname 'Dendritic_batch2' -ResultPath './' -Modelname 'CTISL' -Fileform 'csv' -Norm False
 ```
 
 **Parameters:**
